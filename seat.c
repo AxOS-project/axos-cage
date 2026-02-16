@@ -415,6 +415,9 @@ handle_new_keyboard(struct cg_seat *seat, struct wlr_keyboard *keyboard, bool vi
 
 	wlr_keyboard_set_keymap(keyboard, keymap);
 
+	xkb_mod_index_t numlock_idx = xkb_keymap_mod_get_index(keymap, XKB_MOD_NAME_NUM);
+	if (numlock_idx != XKB_MOD_INVALID) xkb_state_update_mask(keyboard->xkb_state, 0, 0, (1 << numlock_idx), 0, 0, 0);
+
 	xkb_keymap_unref(keymap);
 	xkb_context_unref(context);
 	wlr_keyboard_set_repeat_info(keyboard, 25, 600);
