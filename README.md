@@ -3,3 +3,10 @@
 This project is a modified version of [cage](https://github.com/cage-kiosk/cage), a kiosk micro compositor for Wayland. 
 
 The goal of this fork is to create a version of cage that is to be the compositor of the next AxOS greeter. There will be no support for any other use case.
+
+## Build
+
+```
+$ meson setup build
+$ meson compile -C build
+```
